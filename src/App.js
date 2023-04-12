@@ -1,9 +1,19 @@
 import "./App.css";
 import { useState } from "react";
+import { bootcampers } from "./bootcampers";
 
 
 
 function App() {
+  const [bootcamperIndex, setbootcamperIndex] = useState(0);
+
+  function handleBootcamperClick() {
+
+    setbootcamperIndex(Math.floor(Math.random() * bootcampers.length));
+    console.log(bootcamperIndex);
+
+  }
+
   const [count, setCount] = useState(0);
   function handleCounterClick()
   {
@@ -18,7 +28,7 @@ function App() {
         }>+1</button>
       </section>
       <section>
-        <p className="randomBootcamper">BOOTCAMPER NAME</p>
+        <p className="randomBootcamper">{bootcampers[bootcamperIndex]}</p>
         <button className="randomBootcamperName">
           Click me for a random bootcamper!
         </button>
